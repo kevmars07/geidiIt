@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Projects
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h4>Welcome, {{ loginUser }} !</h4>
+  <ion-card>
+    <ion-card-header>
+      Project List
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-label *ngFor="let project of getProjects()">
+          {{ project.name }}
+        </ion-label>
+      </ion-list>
+      <ion-item>
+        No. of records: {{ noOfRecords }}
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input type="text" placeholder="Enter project name here..." [(ngModel)]="projectName"></ion-input>
+    <button ion-button (click)="addProject()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-footer>
